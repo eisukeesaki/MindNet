@@ -1,11 +1,16 @@
-import './App.css';
 
-function App() {
+import React, { createRef, useEffect } from 'react';
+import renderMindMap from './renderMindMap';
+
+export default function App() {
+  const divRef = createRef();
+
+  useEffect(() => {
+    renderMindMap(divRef.current);
+  }, [divRef]);
+
   return (
-    <div className="App">
-      Hello Mindmap
-    </div>
+    <div ref={divRef} />
   );
 }
 
-export default App;

@@ -89,6 +89,7 @@ resources
             UID
             email
         maps
+        mapName
             UID
             user_ID
         nodes
