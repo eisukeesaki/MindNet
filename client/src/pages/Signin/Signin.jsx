@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../Components/Header/Header";
+import Headers from "../../Components/Header/Headers";
 import Footer from "../../Components/Footer/Footer";
 import googleLogo from "../../assets/images/google.png";
 import "./Signin.scss";
@@ -10,7 +10,7 @@ import "./Signin.scss";
 const Signin = () => {
     return (
         <>
-            <Header />
+            <Headers />
             <form className="signin__form">
                 <div className="signin__container">
                     <h2 className="signin__heading">Sign in</h2>

@@ -3,6 +3,7 @@ import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import MapCard from "../../Components/MapCard/MapCard";
 import "./MapList.scss";
+import Headers from "../../Components/Header/Headers";
 
 const mapListDummyData = [
     { id: 1, title: "Tommy" },
@@ -15,7 +16,7 @@ const mapListDummyData = [
 const MapList = () => {
     return (
         <>
-            <Header />
+            <Headers />
             <div className="main">
                 {mapListDummyData.map((item, index) => (
                     <MapCard key={item.id} item={item} />

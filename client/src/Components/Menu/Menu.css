@@ -1,0 +1,50 @@
+.nav {
+    margin-bottom: 4rem !important;
+    margin-top: 84px !important;
+    background-color: #64C8CD !important;
+    --bs-nav-link-padding-x: 3rem !important;
+    padding-left: 55% !important;
+
+    width: 100% !important;
+
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.nav-link.active {
+    color: #64C8CD !important;
+}
+
+@media screen and (max-width: 1165px) {
+    .nav {
+        padding-left: 45% !important;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .nav {
+        padding-left: 38% !important;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .nav {
+        padding-left: 35% !important;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .nav {
+        padding-left: 0% !important;
+        /* padding-top: 5%; */
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .nav {
+        --bs-nav-link-padding-x: 1rem !important;
+        /* padding-top: 5%; */
+    }
+}

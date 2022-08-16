@@ -8,14 +8,13 @@ import * as THREE from 'three';
 import colorsByLevel from './colorsByLevel';
 import updateLinkPosition from './updateLinkPosition';
 
-
 export default async function renderMindMap(div) {
-    const { scene, renderer, camera } = initializeScene(div, data);
+    const { scene, renderer, camera, controls } = initializeScene(div, data);
     data.nodes = await Promise.all(
         data.nodes.map((node) =>
             renderToSprite(<MindMapNode label={node.name} level={node.level} />, {
-                width: 120,
-                height: 60
+                width: 128,
+                height: 64
             }).then((sprite) => ({ ...node, sprite }))
         )
     );
@@ -33,6 +32,7 @@ export default async function renderMindMap(div) {
 
     (function animate() {
         graph.tickFrame();
+        controls.update();
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
     })();

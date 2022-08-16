@@ -1,7 +1,7 @@
 import React, { createRef, useEffect } from "react";
 import renderMindMap from "../../Components/DrawMap/renderMindMap";
 
-const Home = () => {
+const DrawMindMap = () => {
     const divRef = createRef();
     useEffect(() => {
         renderMindMap(divRef.current);
@@ -9,4 +9,4 @@ const Home = () => {
     return <div ref={divRef} />;
 };
 
-export default Home;
+export default DrawMindMap;

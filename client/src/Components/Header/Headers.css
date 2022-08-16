@@ -1,0 +1,29 @@
+.contain {
+    position: absolute;
+    left: 0;
+    width: 100% !important;
+    top: 0;
+    height: 100px;
+    bottom: 0;
+    box-sizing: border-box;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+    z-index: 100;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background-color: rgb(100, 200, 205);
+}
+
+.title {
+    position: absolute;
+    left: 1.98%;
+    right: 82.34%;
+    top: 27.56%;
+    bottom: 26.77%;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 58px;
+    text-align: center;
+    color: #FFFFFF;
+}
