@@ -3,9 +3,6 @@ import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import googleLogo from "../../assets/images/google.png";
 import "./Signin.scss";
-// import GoogleLogin from "react-google-login";
-
-// const googleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 const Signin = () => {
     return (
