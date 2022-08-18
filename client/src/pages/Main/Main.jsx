@@ -1,7 +1,12 @@
 import React from "react";
+import Node from "../../Components/Node/Node";
 
 const Main = () => {
-    return <div>Main</div>;
+    return (
+        <>
+            <Node />
+        </>
+    );
 };
 
 export default Main;
