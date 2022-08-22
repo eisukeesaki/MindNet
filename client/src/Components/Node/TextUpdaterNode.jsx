@@ -10,7 +10,7 @@ function TextUpdaterNode({ data }) {
 
     return (
         <div className="text-updater-node">
-            <Handle type="target" position={Position.Top} />
+            <Handle type="target" position={Position.Right} />
             <div>
                 <input
                     id="text"
@@ -19,13 +19,8 @@ function TextUpdaterNode({ data }) {
                     className="input"
                 />
             </div>
-            <Handle
-                type="source"
-                position={Position.Bottom}
-                id="a"
-                style={handleStyle}
-            />
-            <Handle type="source" position={Position.Right} id="b" />
+            <Handle type="source" position={Position.Left} id="a" />
+            <Handle type="source" position={Position.Left} id="b" />
         </div>
     );
 }
