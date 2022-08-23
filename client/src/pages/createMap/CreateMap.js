@@ -6,8 +6,9 @@ import Content from "../../Components/CreateMap/Content";
 import Headers from "../../Components/Header/Headers";
 import '../../pages/createMap/createMap.css'
 import Footer from "../../Components/Footer/Footer";
+import { Component } from "react";
 
-class CreateMap extends React.Component {
+class CreateMap extends Component {
     constructor(props) {
         super(props);
         router.init(routes);

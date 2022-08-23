@@ -32,7 +32,7 @@ export default async function renderMindMap(div) {
 
     (function animate() {
         graph.tickFrame();
-        controls.update();
+        // controls.update();
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
     })();

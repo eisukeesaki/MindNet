@@ -5,8 +5,9 @@ import router from "./router";
 import css from "./map.module.css";
 import Toolbar from "./Toolbar";
 import Chart from "./Chart";
+import { Component } from "react";
 
-class Map extends React.Component {
+class Map extends Component {
     DEFAULT_WIDTH = 400;
     DEFAULT_HEIGHT = 200;
     constructor(props) {
@@ -167,7 +168,6 @@ class Map extends React.Component {
     };
 
     viewMenu = [
-        { name: 'viewList', onClick: () => this.setState({ view: 'table' }) },
         { name: 'hive', onClick: () => this.setState({ view: 'chart' }) }
     ];
 

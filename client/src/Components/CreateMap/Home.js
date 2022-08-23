@@ -54,7 +54,7 @@ class Home extends React.Component {
                                 <Card id={item.id}
                                     onClick={() => this.setSelected(item.id)}
                                     isSelected={item.id === this.state.id}
-                                    name={item.name} comment={item.comment} />
+                                    name={item.name} />
                             </div>
                         ))
                     }
