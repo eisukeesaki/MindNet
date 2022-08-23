@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+// import TrackballControls from 'three-trackballcontrols';
 import createCanvas from './createCanvas';
 import { throttle } from 'lodash-es';
 import setCanvasDimensions from './setCanvasDimensions';
@@ -20,6 +21,8 @@ export default function initializeScene(div) {
         500000
     );
     camera.position.z = 1.5;
+
+    // const controls = new TrackballControls(camera, renderer.domElement);
 
     window.addEventListener(
         'resize',
