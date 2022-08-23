@@ -1,71 +1,40 @@
 import React from "react";
 import ReactFlow from "react-flow-renderer";
-import setCoordinate from "../../helper/setCoordinate";
-
-const json = ["John", "Mike", "Tom"];
-
-const y = setCoordinate(json);
+import TextUpdaterNode from "./TextUpdaterNode";
 
 const initialNodes = [
     //Parent Node
     {
         id: "parent",
         sourcePosition: "right",
-        type: "input",
+        type: "textUpdater",
         data: { label: "parent" },
-        position: { x: 0, y: 40 },
+        position: { x: 0, y: 50 },
     },
     //Child Node
     {
         id: "child-1",
         sourcePosition: "right",
         targetPosition: "left",
+        type: "textUpdater",
         data: { label: "child-1" },
-        position: { x: 250, y: y },
+        position: { x: 250, y: 0 },
     },
-    {
-        id: "child-2",
-        sourcePosition: "right",
-        targetPosition: "left",
-        data: { label: "child-3" },
-        position: { x: 250, y: 120 },
-    },
-    //Grand Child Node
     // {
-    //     id: "horizontal-4",
+    //     id: "child-2",
+    //     sourcePosition: "right",
     //     targetPosition: "left",
-    //     data: { label: "4" },
-    //     position: { x: 500, y: -100 },
+    //     type: "textUpdater",
+    //     data: { label: "child-2" },
+    //     position: { x: 250, y: 50 },
     // },
     // {
-    //     id: "horizontal-5",
+    //     id: "child-3",
+    //     sourcePosition: "right",
     //     targetPosition: "left",
-    //     data: { label: "5" },
-    //     position: { x: 500, y: -30 },
-    // },
-    // {
-    //     id: "horizontal-6",
-    //     targetPosition: "left",
-    //     data: { label: "6" },
-    //     position: { x: 500, y: 40 },
-    // },
-    // {
-    //     id: "horizontal-7",
-    //     targetPosition: "left",
-    //     data: { label: "7" },
-    //     position: { x: 500, y: 120 },
-    // },
-    // {
-    //     id: "horizontal-8",
-    //     targetPosition: "left",
-    //     data: { label: "8" },
-    //     position: { x: 500, y: 190 },
-    // },
-    // {
-    //     id: "horizontal-9",
-    //     targetPosition: "left",
-    //     data: { label: "9" },
-    //     position: { x: 500, y: 260 },
+    //     type: "textUpdater",
+    //     data: { label: "child-3" },
+    //     position: { x: 250, y: 100 },
     // },
 ];
 
@@ -80,6 +49,12 @@ const initialEdges = [
         id: "parent-child2",
         source: "parent",
         target: "child-2",
+        animated: true,
+    },
+    {
+        id: "parent-child3",
+        source: "parent",
+        target: "child-3",
         animated: true,
     },
     // {
@@ -120,12 +95,15 @@ const initialEdges = [
     // },
 ];
 
+const nodeTypes = { textUpdater: TextUpdaterNode };
+
 const Node = () => {
     return (
         <div style={{ height: 800 }}>
             <ReactFlow
                 nodes={initialNodes}
                 edges={initialEdges}
+                nodeTypes={nodeTypes}
                 fitView
             ></ReactFlow>
         </div>

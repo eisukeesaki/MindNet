@@ -1,26 +1,17 @@
-import { useCallback } from "react";
 import { Handle, Position } from "react-flow-renderer";
 
-// const handleStyle = { left: 10 };
-
-function TextUpdaterNode({ data }) {
-    const onChange = useCallback((evt) => {
-        console.log(evt.target.value);
-    }, []);
-
+function TextUpdaterNode() {
+    const onAddNode = (e) => {
+        console.log(e);
+    };
     return (
         <div className="text-updater-node">
-            <Handle type="target" position={Position.Right} />
+            <Handle type="target" position={Position.Left} />
             <div>
-                <input
-                    id="text"
-                    name="text"
-                    onChange={onChange}
-                    className="input"
-                />
+                <input id="text" name="text" className="input" />
+                <button onClick={(e) => onAddNode(e)}>+</button>
             </div>
-            <Handle type="source" position={Position.Left} id="a" />
-            <Handle type="source" position={Position.Left} id="b" />
+            <Handle type="source" position={Position.Right} id="a" />
         </div>
     );
 }
