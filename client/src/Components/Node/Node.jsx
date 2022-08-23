@@ -1,41 +1,43 @@
 import React from "react";
 import ReactFlow from "react-flow-renderer";
-import TextUpdaterNode from "./TextUpdaterNode";
+import ParentNode from "./ParentNode";
+import ChildNode from "./ChildNode";
+import "./Node.scss";
+
+const childrenData = ["child-1", "child-2", "child-3"];
+
+const nodeTypes = { parentNode: ParentNode, childNode: ChildNode };
 
 const initialNodes = [
     //Parent Node
     {
         id: "parent",
         sourcePosition: "right",
-        type: "textUpdater",
-        data: { label: "parent" },
-        position: { x: 0, y: 50 },
+        type: "parentNode",
+        position: { x: 0, y: 0 },
     },
-    //Child Node
+    // Child Node
     {
-        id: "child-1",
+        id: childrenData[0],
         sourcePosition: "right",
         targetPosition: "left",
-        type: "textUpdater",
-        data: { label: "child-1" },
+        type: "childNode",
+        position: { x: 250, y: -200 },
+    },
+    {
+        id: childrenData[1],
+        sourcePosition: "right",
+        targetPosition: "left",
+        type: "childNode",
         position: { x: 250, y: 0 },
     },
-    // {
-    //     id: "child-2",
-    //     sourcePosition: "right",
-    //     targetPosition: "left",
-    //     type: "textUpdater",
-    //     data: { label: "child-2" },
-    //     position: { x: 250, y: 50 },
-    // },
-    // {
-    //     id: "child-3",
-    //     sourcePosition: "right",
-    //     targetPosition: "left",
-    //     type: "textUpdater",
-    //     data: { label: "child-3" },
-    //     position: { x: 250, y: 100 },
-    // },
+    {
+        id: childrenData[2],
+        sourcePosition: "right",
+        targetPosition: "left",
+        type: "childNode",
+        position: { x: 250, y: 200 },
+    },
 ];
 
 const initialEdges = [
@@ -57,49 +59,11 @@ const initialEdges = [
         target: "child-3",
         animated: true,
     },
-    // {
-    //     id: "horizontal-e2-4",
-    //     source: "horizontal-2",
-    //     target: "horizontal-4",
-    //     animated: true,
-    // },
-    // {
-    //     id: "horizontal-e2-5",
-    //     source: "horizontal-2",
-    //     target: "horizontal-5",
-    //     animated: true,
-    // },
-    // {
-    //     id: "horizontal-e2-6",
-    //     source: "horizontal-2",
-    //     target: "horizontal-6",
-    //     animated: true,
-    // },
-    // {
-    //     id: "horizontal-e3-7",
-    //     source: "horizontal-3",
-    //     target: "horizontal-7",
-    //     animated: true,
-    // },
-    // {
-    //     id: "horizontal-e3-8",
-    //     source: "horizontal-3",
-    //     target: "horizontal-8",
-    //     animated: true,
-    // },
-    // {
-    //     id: "horizontal-e3-9",
-    //     source: "horizontal-3",
-    //     target: "horizontal-9",
-    //     animated: true,
-    // },
 ];
-
-const nodeTypes = { textUpdater: TextUpdaterNode };
 
 const Node = () => {
     return (
-        <div style={{ height: 800 }}>
+        <div className="node">
             <ReactFlow
                 nodes={initialNodes}
                 edges={initialEdges}
