@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { Handle, Position } from "react-flow-renderer";
 
-const handleStyle = { left: 10 };
+// const handleStyle = { left: 10 };
 
 function TextUpdaterNode({ data }) {
     const onChange = useCallback((evt) => {
