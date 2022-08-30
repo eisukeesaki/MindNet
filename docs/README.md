@@ -36,7 +36,7 @@ The server uses [express-session](https://github.com/expressjs/session) to manip
 
 ## Production environment
 
-The application is deployed on AWS as an EC2 instance running Ubuntu Server.
+The application is deployed on AWS as an EC2 instance running Ubuntu Server at [http://mindnet.me:4242](http://mindnet.me:4242/)
 
 ## DNS
 
