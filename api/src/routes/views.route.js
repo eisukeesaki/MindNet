@@ -11,7 +11,9 @@ const ensureAuthenticated = require("@utils/ensureAuthenticated.util")({
 
 views.get("/",
   // ensureAuthenticated,
-  express.static(path.join('..', 'client', 'build'))
+  (req, res, next) => {
+    res.sendFile(__views + "/api-documentation.html")
+  }
 );
 
 // for testing purposes

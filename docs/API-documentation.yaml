@@ -1,0 +1,276 @@
+openapi: 3.0.0
+info:
+  description: This is a RESTful API for the mind map application, [MindNet](https://github.com/eisukeesaki/MindNet).
+  version: "0.0.1"
+  title: MindNet
+servers:
+  - description: AWS EC2
+    url: http://mindnet.me:4242
+paths:
+  /api/maps:
+    post:
+      tags:
+        - maps
+      summary: create a mind map
+      description: The client must send a valid session cookie to do this.
+      operationId: createMap
+      responses:
+        201:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Map'
+        500:
+          description: query failure
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+        description: map object to create
+        required: true
+    get:
+      tags:
+        - maps
+      summary: get a mind map
+      description: The client must send a valid session cookie to do this.
+      operationId: getMaps
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Map'
+        404:
+          description: resource not found
+        500:
+          description: query failure
+    put:
+      tags:
+        - maps
+      summary: Update a mind map
+      description: The client must send a valid session cookie to do this.
+      operationId: updateMap
+      responses:
+        '200':
+          description: successful operation
+        '401':
+          description: unauthorized
+        '404':
+          description: Map not found
+        '500':
+          description: Query failure
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                title:
+                  type: string
+        description: map object to update
+        required: true
+    delete:
+      tags:
+        - maps
+      summary: Delete mind map
+      description: The client must send a valid session cookie to do this.
+      operationId: deleteMap
+      responses:
+        '200':
+          description: successful operation
+        '401':
+          description: unauthorized
+        '404':
+          description: Map not found
+        '500':
+          description: Query failure
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+        description: map object to delete
+        required: true
+  /api/nodes:
+    post:
+      tags:
+        - nodes
+      summary: create a node
+      description: The client must send a valid session cookie to do this.
+      operationId: createNode
+      responses:
+        '201':
+          description: successful operation
+        '401':
+          description: unauthorized
+        '404':
+          description: Map not found
+        '500':
+          description: Query failure
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                map_id:
+                  type: string
+                content:
+                  type: string
+                parent_id:
+                  type: string
+        description: node object to create
+        required: true
+    get:
+      tags:
+        - nodes
+      summary: get a list of nodes associated with a map
+      description: The client must send a valid session cookie to do this.
+      operationId: getNodes
+      parameters:
+        - name: map_id
+          in: query
+          description: ID of the map the node is associated with
+          required: true
+          schema:
+            type: string
+            format: UUID
+      responses:
+        '201':
+          description: successful operation
+        '401':
+          description: unauthorized
+        '404':
+          description: Map not found
+        '500':
+          description: Query failure
+    put:
+      tags:
+        - nodes
+      summary: Update a node
+      description: The client must send a valid session cookie to do this.
+      operationId: updateNode
+      responses:
+        '200':
+          description: successful operation
+        '401':
+          description: unauthorized
+        '404':
+          description: Map not found
+        '500':
+          description: Query failure
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: UUID
+                content:
+                  type: string
+                parent_id:
+                  type: string
+                  format: UUID
+        description: node object to update
+        required: true
+    delete:
+      tags:
+        - nodes
+      summary: Delete a node
+      description: The client must send a valid session cookie to do this.
+      operationId: deleteNode
+      responses:
+        '200':
+          description: successful operation
+        '401':
+          description: unauthorized
+        '404':
+          description: Map not found
+        '500':
+          description: Query failure
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+        description: node object to delete
+        required: true
+externalDocs:
+  description: Find out more about MindNet
+  url: 'http://github.com/eisukeesaki/MindNet'
+components:
+  schemas:
+    Users:
+      type: object
+      properties:
+        id:
+          type: string
+          format: UUID
+        email:
+          type: string
+        name:
+          type: string
+    federated_credentials:
+      type: object
+      properties:
+        user_id:
+          type: string
+          format: UUID
+        provider:
+          type: string
+        subject:
+          type: string
+    Map:
+      type: object
+      properties:
+        id:
+          type: string
+          format: UUID
+        title:
+          type: string
+        user_id:
+          type: string
+          format: UUID
+    Nodes:
+      type: object
+      properties:
+        id:
+          type: string
+          format: UUID
+        content:
+          type: string
+        parent_id:
+          type: string
+          format: UUID
+        user_id:
+          type: string
+          format: UUID
+        map_id:
+          type: string
+          format: UUID
+    ApiResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        type:
+          type: string
+        message:
+          type: string
